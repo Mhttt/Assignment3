@@ -72,5 +72,28 @@ namespace BDSA2021.Assignment03.Tests
             //Then
             Assert.Equal(new int[]{400,800}, output);
         }
+
+        
+        [Theory]
+        [InlineData("https://github.com/ondfisk/BDSA2021",true)]
+        [InlineData("http://github.com/ondfisk/BDSA2021",false)]
+        [InlineData("https://youtube.com",true)]
+
+        public void IsSecure_GivenThreeUris_returns_true_false_true(string u, bool expected)
+        {
+            Uri i = new Uri(u);
+            Assert.Equal(i.IsSecure(),expected);
+        }
+
+        [Theory]
+        [InlineData("iufhshf fsiufhs iusgf",3)]
+        [InlineData("pokf, sfijdf...sf hhfsf",4)]
+        [InlineData("ojsfijf sf  dfs s s s s,,s , , s",9)]
+        public void TestName(string s, int i)
+        {
+            Assert.Equal(s.WordCount(),i);
+        }
+
+        
     }
 }
