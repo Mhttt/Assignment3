@@ -27,7 +27,7 @@ namespace BDSA2021.Assignment03.Tests
         }
 
         [Fact]
-        public void Filter_given_200_33_3211_400_800_and_predicateLeapYea_returns400_800()
+        public void LeapYear_given_200_33_3211_400_800_and_predicateLeapYea_returns400_800()
         {
 
             var input = new int[]{200, 33, 3211, 400, 800};
