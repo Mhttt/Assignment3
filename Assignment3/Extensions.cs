@@ -17,12 +17,24 @@ namespace BDSA2021.Assignment03
 
         public static int WordCount(this string s) => (Regex.Split(s,@"\P{L}+")).Count();
 
-        public static void Print(this char[] c)
+        //---------------------------------------------------------------------------------------------------------
+
+      /*   public static IEnumerable<string> getWizardsFromAuthor(this IEnumerable<Wizard> w, string author, )
         {
-            foreach (var item in c)
-            {
-                System.Console.WriteLine(c);
-            }
+            return w.Where(w.Creator.Contains("Rowling")).Select(w.Name);
         }
+
+        public static int getYearOfFirstSithLord(this IEnumerable<Wizard> w)
+        {
+            return w.Where(w => w.Name.Contains("Darth")).OrderByDescending(w=>w.Year).Last().Value;
+            
+        }
+
+        public static IEnumerable<(string name, int year)> getHarryPotterWizards(this IEnumerable<Wizard> w)
+        {
+            return w.Where(w => w.Medium.Contains("Harry Potter")).Select(w => new Tuple<string, int>(w.Name,w.Year.Value)).Distinct();
+
+        } */
+
     }
 }
