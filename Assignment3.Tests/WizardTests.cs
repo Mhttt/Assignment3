@@ -40,7 +40,7 @@ namespace BDSA2021.Assignment03.Tests
         
         }
         [Fact]
-        public void Extentionmethods_Given_Rowling_Returns_HarryPotter_Voldemort_Dobby_HermioneGranger_RonWeasley_GinnyWeasley_FredWeasley_GeorgeWeasley()
+        public void Extention_Given_Rowling_Returns_HarryPotter_Voldemort_Dobby_HermioneGranger_RonWeasley_GinnyWeasley_FredWeasley_GeorgeWeasley()
         {
             var w = Wizard.Wizards.Value;
             var output = w.Where(w=>w.Creator.Contains("Rowling")).Select(w=>w.Name);
@@ -57,8 +57,17 @@ namespace BDSA2021.Assignment03.Tests
             Assert.Equal(output, 1900);
         }
 
+        public void Extention_given_al_wizards_returns_1900()
+        {
+            var w = Wizard.Wizards.Value;
+            int output = w.Where(w => w.Name.Contains("Darth")).OrderByDescending(w=>w.Year).Select(w=>w.Year).Last().Value;
+
+            Assert.Equal(output, 1900);
+        }
+
+
         [Fact]
-        public void TestName()
+        public void getHarryPotterWizards_returns_allHarryPotterWizardsAsTuples()
         {
             var wizards = Wizard.Wizards.Value;
             var output = Queries.getHarryPotterWizards(wizards);
@@ -77,15 +86,49 @@ namespace BDSA2021.Assignment03.Tests
 
             Assert.Equal(output, expected);
         }
+        [Fact]
+        public void Extention_returns_allHarryPotterWizardsAsTuples()
+        {
+            
+            var w = Wizard.Wizards.Value;
+            var output = w.Where(w => w.Medium.Contains("Harry Potter")).Select(w => (w.Name,w.Year.Value)).Distinct();
+
+            var expected = new List<(string, int)>
+            {
+                ("Harry Potter", 1997),
+                ("Voldemort", 1997),
+                ("Dobby", 1997),
+                ("Hermione Granger", 1997),
+                ("Ron Weasley", 1997),
+                ("Ginny Weasley", 1997),
+                ("Fred Weasley", 1997),
+                ("George Weasley", 1997)
+            };
+            Assert.Equal(output, expected);
+        }
+
+        
 
         [Fact]
-        public void TestName1()
+        public void getWizardNames_returns_AllWizardsNames_reverseOrder_groupedByCreator()
         {
             var wizards = Wizard.Wizards.Value;
             var output = Queries.getWizardNames(wizards);
 
             Assert.Equal(output, new string[]{"Merlin","Sauron","Gandalf","Voldemort","Ron Weasley","Hermione Granger","Harry Potter","Ginny Weasley","George Weasley","Fred Weasley","Dobby","Melly Sandra","Darth Vader","Darth Maul"}); 
         }
+
+        [Fact]
+        public void Extention_returns_AllWizardsNames_reverseOrder_groupedByCreator()
+        {
+            //from w in wizards group w by new {w.Creator, w.Name} into g orderby g.Key.Creator descending, g.Key.Name descending select g.Key.Name;
+           
+           /*  var w = Wizard.Wizards.Value;
+            var output = w.GroupBy(w=> new {w.Creator, w.Name},(key, group) => new {key1 = key.Creator, key2= key.Name}).OrderByDescending(w=>w.Creator).ThenByDescending(w=>w.Name).Select(w=>w.Name);
+
+            Assert.Equal(output, new string[]{"Merlin","Sauron","Gandalf","Voldemort","Ron Weasley","Hermione Granger","Harry Potter","Ginny Weasley","George Weasley","Fred Weasley","Dobby","Melly Sandra","Darth Vader","Darth Maul"});  */
+        }
+
 
 
     }

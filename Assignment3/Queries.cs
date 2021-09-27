@@ -26,8 +26,6 @@ namespace BDSA2021.Assignment03
         public static IEnumerable<string> getWizardNames(IEnumerable<Wizard> wizards)
         {
             return from w in wizards group w by new {w.Creator, w.Name} into g orderby g.Key.Creator descending, g.Key.Name descending select g.Key.Name;
-
-
         }
         
 
