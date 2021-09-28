@@ -82,7 +82,7 @@ namespace BDSA2021.Assignment03.Tests
             var w = Wizard.Wizards.Value;
             var output = w.GroupBy(w=> new {w.Creator, w.Name}).OrderByDescending(w=>w.Key.Creator).ThenByDescending(w=>w.Key.Name).Select(w=>w.Key.Name);
 
-            Assert.Equal(output, new string[]{"Merlin","Sauron","Gandalf","Voldemort","Ron Weasley","Hermione Granger","Harry Potter","Ginny Weasley","George Weasley","Fred Weasley","Dobby","Melly Sandra","Darth Vader","Darth Maul"});  
+            Assert.Equal(output, new string[]{"Merlin","Sauron","Gandalf","Voldemort","Ron Weasley","Hermione Granger","Harry Potter","Ginny Weasley","George Weasley","Fred Weasley","Dobby","Melisandre","Darth Vader","Darth Maul"});  
         }
 
 

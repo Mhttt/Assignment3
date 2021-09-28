@@ -56,7 +56,7 @@ namespace BDSA2021.Assignment03.Tests
             var wizards = Wizard.Wizards.Value;
             var output = Queries.getWizardNames(wizards);
 
-            Assert.Equal(output, new string[]{"Merlin","Sauron","Gandalf","Voldemort","Ron Weasley","Hermione Granger","Harry Potter","Ginny Weasley","George Weasley","Fred Weasley","Dobby","Melly Sandra","Darth Vader","Darth Maul"}); 
+            Assert.Equal(output, new string[]{"Merlin","Sauron","Gandalf","Voldemort","Ron Weasley","Hermione Granger","Harry Potter","Ginny Weasley","George Weasley","Fred Weasley","Dobby","Melisandre","Darth Vader","Darth Maul"}); 
         }
     }
 }
