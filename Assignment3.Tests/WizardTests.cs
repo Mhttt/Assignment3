@@ -28,7 +28,6 @@ namespace BDSA2021.Assignment03.Tests
                 w.Creator == creator
             );
         }
-
         
         [Fact]
         public void Extention_Given_Rowling_Returns_HarryPotter_Voldemort_Dobby_HermioneGranger_RonWeasley_GinnyWeasley_FredWeasley_GeorgeWeasley()
@@ -37,7 +36,6 @@ namespace BDSA2021.Assignment03.Tests
             var output = w.Where(w=>w.Creator.Contains("Rowling")).Select(w=>w.Name);
             Assert.Equal(output,new string[]{"Harry Potter", "Voldemort", "Dobby", "Hermione Granger", "Ron Weasley","Ginny Weasley","Fred Weasley","George Weasley"});
         }
-        
 
         public void Extention_given_al_wizards_returns_1900()
         {
@@ -47,8 +45,6 @@ namespace BDSA2021.Assignment03.Tests
             Assert.Equal(output, 1900);
         }
 
-
-       
         [Fact]
         public void Extention_returns_allHarryPotterWizardsAsTuples()
         {
@@ -70,10 +66,6 @@ namespace BDSA2021.Assignment03.Tests
             Assert.Equal(output, expected);
         }
 
-        
-
-       
-
         [Fact]
         public void Extention_returns_AllWizardsNames_reverseOrder_groupedByCreator()
         {
@@ -84,8 +76,6 @@ namespace BDSA2021.Assignment03.Tests
 
             Assert.Equal(output, new string[]{"Merlin","Sauron","Gandalf","Voldemort","Ron Weasley","Hermione Granger","Harry Potter","Ginny Weasley","George Weasley","Fred Weasley","Dobby","Melisandre","Darth Vader","Darth Maul"});  
         }
-
-
 
     }
 }

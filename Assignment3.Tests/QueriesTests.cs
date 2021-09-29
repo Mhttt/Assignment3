@@ -17,7 +17,6 @@ namespace BDSA2021.Assignment03.Tests
             string[] output = Queries.getWizardsFromAuthor("Rowling",wizards).ToArray();
 
             Assert.Equal(output,new string[]{"Harry Potter", "Voldemort", "Dobby", "Hermione Granger", "Ron Weasley","Ginny Weasley","Fred Weasley","George Weasley"});
-        
         }
 
         [Fact]
@@ -29,7 +28,7 @@ namespace BDSA2021.Assignment03.Tests
             Assert.Equal(output, 1900);
         }
 
-         [Fact]
+        [Fact]
         public void getHarryPotterWizards_returns_allHarryPotterWizardsAsTuples()
         {
             var wizards = Wizard.Wizards.Value;
@@ -50,7 +49,7 @@ namespace BDSA2021.Assignment03.Tests
             Assert.Equal(output, expected);
         }
 
-         [Fact]
+        [Fact]
         public void getWizardNames_returns_AllWizardsNames_reverseOrder_groupedByCreator()
         {
             var wizards = Wizard.Wizards.Value;
