@@ -1,43 +1,47 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace BDSA2021.Assignment03.Tests
 {
     public class ExtensionsTests
     {
+        #region Flatten
         [Fact]
-        public void Flatten_Given2DIntArray_ReturnsIntArray()
+        public void FlattenWithExtentions_Given2DIntArray_ReturnsIntArray()
         {
             var subInput1 = new int[]{1,2,3,4,5,6};
             var subInput2 = new int[]{6,5,4,3,2,1};
             var input = new int[][]{subInput1,subInput2};
-            
-            var output = input.Flatten();
+        
+            var output = input.SelectMany(x=>x);
             Assert.Equal(new int[]{1,2,3,4,5,6,6,5,4,3,2,1},output);
-
-        }
-
+        }    
+        #endregion Flatten
+        
+        #region Filter
+    
         [Fact]
-        public void Filter_given3_4_5_6_2_8_6_49_returns49()
+        public void FilterWithExtentions_given3_4_5_6_2_8_6_49_returns49()
         {
             var input = new int[]{3,4,5,6,2,8,6,49};
-            var output = input.Filter();
+            var output = input.Where(y=>y>42&& y%7==0);
             Assert.Equal(new int[]{49}, output);
         }
+        #endregion Filter
 
+        #region LeapYear
         [Fact]
-        public void LeapYear_given_200_33_3211_400_800_and_predicateLeapYea_returns400_800()
+        public void LeapYearWithExtentions_given_200_33_3211_400_800_and_predicateLeapYea_returns400_800()
         {
-
             var input = new int[]{200, 33, 3211, 400, 800};
-
-            var output = input.LeapYear();
-            
+            var output = input.Where(y=>DateTime.IsLeapYear(y));
             Assert.Equal(new int[]{400,800}, output); 
         }
-
+        #endregion LeapYear
         
+        #region IsSecure
         [Theory]
         [InlineData("https://github.com/ondfisk/BDSA2021",true)]
         [InlineData("http://github.com/ondfisk/BDSA2021",false)]
@@ -48,7 +52,9 @@ namespace BDSA2021.Assignment03.Tests
             Uri i = new Uri(u);
             Assert.Equal(i.IsSecure(),expected);
         }
-
+        #endregion IsSecure 
+        
+        #region Equal
         [Theory]
         [InlineData("iufhshf fsiufhs iusgf",3)]
         [InlineData("pokf, sfijdf...sf hhfsf",4)]
@@ -57,7 +63,7 @@ namespace BDSA2021.Assignment03.Tests
         {
             Assert.Equal(s.WordCount(),i);
         }
-
+        #endregion Equal
         
     }
 }
